@@ -9,10 +9,9 @@ h1{
     color: black;
     margin: 10px;
     display: inline;
-    /*test voor github*/
 }
 h2{
-    font-size: 70px;
+    font-size: 50px;
 }
 h3{
     font-size: 25px;
@@ -131,6 +130,7 @@ footer{
     }
     h2{
         font-size: 30px;
+        border: thin white solid;
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
         text-align: center;
@@ -140,8 +140,11 @@ footer{
         padding: 10px;
         margin: 10px;
     }
+    h4{
+        font-size: 17px;
+    }
     article{
-      font-size: 17px;
+        font-size: 17px;
     }
     #main-article{
       padding-top: 0px;
@@ -167,6 +170,7 @@ footer{
         position: relative;
         border-top-right-radius: 15px !important; /*to overwrite the border radius of parent id*/
         border-top-left-radius: 15px !important;
+        border-bottom-right-radius: 0px !important;
         padding: 0px !important;
     }
     #nav-reviews{
