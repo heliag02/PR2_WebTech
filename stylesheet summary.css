@@ -1,0 +1,41 @@
+h4{
+    font-weight: 600;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline;
+}
+
+ul{
+  list-style: inside;
+  padding: 0px;
+  
+}
+
+#summary-img{
+    float: right;
+    width: 30%;
+    min-width: 200px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+}
+
+#summary-list a{
+    color: white;
+    text-decoration: none;
+    text-align: left;
+}
+
+#summary-list a:hover {
+    color: #000;
+}
+
+@media screen and (max-width: 1025px) {
+    #summary-img{
+      margin: 10px;
+    }
+}
+
+
+
+
+
