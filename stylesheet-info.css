@@ -1,2 +1,13 @@
-#title{
+h3{
+    color: black;
 }
+
+section{
+    padding-bottom: 7px;
+}
+
+p{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+

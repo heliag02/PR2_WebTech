@@ -35,29 +35,96 @@ class Actor extends Artist{
     }
 }
 titanic = new Movie("Titanic", "Romance/Drama", 1998);
-director = new Director("James Cameron", 1954, ['Avatar', 'Avatar: The Way of Water', 'Terminator 2: Judgement Day']);
-writer = new Writer('James Cameron', 1954, ['no books written']);
+cameron = new Director("James Cameron", 1954, ['Avatar', 'Avatar: The Way of Water', 'Terminator 2: Judgement Day']);
+//cameron = new Writer('James Cameron', 1954, []);
 dicaprio = new Actor('Leonardo DiCaprio', 1974, ['The Wolf of Wallstreet', 'The Revenant', 'Romeo + Juliet'], "character-photos/leonardo_dicaprio.jpg");
 winslet = new Actor('Kate Winslet', 1975, ['Avatar: The Way of Water', 'Mare of Easttown', 'The Holiday'], "character-photos/kate_winslet.jpg");
 zane = new Actor('Billy Zane', 1966, ['The Phantom', 'Dead Calm', 'Back to the Future Part II'], "character-photos/billy_zane.jpg");
 bates = new Actor('Kathy Bates', 1948, ['Misery', 'Dolores Claiborne', 'Fried Green Tomatoes'], "character-photos/kathy_bates.jpg");
 fisher = new Actor('Frances Fisher', 1952, ['Holidate', 'Unforgiven', 'The Sinner'], "character-photos/francis_fisher.jpg");
 
+function createListMovies(person){
+    var moviesList = document.createElement('ul');
+    person.movies.forEach(movie => {
+        var listItem = document.createElement('li');
+        listItem.append(movie);
+        moviesList.appendChild(listItem);
+    })
+    return moviesList;
+}
+
+function createSection(title){
+    var titel = document.createElement('h3');
+    var titelTekst = document.createTextNode(title);
+    titel.append(titelTekst);
+    var section = document.createElement('section');
+    section.appendChild(titel);
+    return section;
+}
+
 var main = document.getElementById('main');
 
-var filmTitel = document.createTextNode("Information of the movie Titanic");
-var filmTekst = document.createTextNode("Title: ");
-var filmTekst1 = document.createTextNode("Genre: ");
-var filmTekst2 = document.createTextNode("Year: ");
-var filmKopje = document.createElement('h2');
-filmKopje.appendChild(filmTitel);
-var filmInhoud = document.createElement('p');
-filmInhoud.append(filmTekst,titanic.title,filmTekst1,titanic.genre,filmTekst2,titanic.year);
+var infoTitel = document.createTextNode("Information");
+var titel = document.createElement('h2');
+titel.appendChild(infoTitel);
+main.appendChild(titel);
 
-var filmSection = document.createElement('section');
-filmSection.setAttribute("id","filmSection");
-main.appendChild(filmKopje);
-filmSection.appendChild(filmInhoud);
-main.appendChild(filmSection);
+//film info 
+var filmGenre = document.createTextNode("Genre: ");
+var filmGenrePar = document.createElement('p');
+filmGenrePar.append(filmGenre,titanic.genre);
+
+var filmJaar = document.createTextNode("Year: ");
+var filmJaarPar = document.createElement('p');
+filmJaarPar.append(filmJaar,titanic.year);
+
+var filmSection = createSection(titanic.title + " (movie)");
+filmSection.append(filmGenrePar,filmJaarPar);
+
+//director info
+var directorBirthYear = document.createTextNode("Birth year: ");
+var directorBirthYearPar = document.createElement('p');
+directorBirthYearPar.append(directorBirthYear,cameron.birthyear);
+var directorMovies = document.createTextNode("Movies: ");
+var directorMoviesList = createListMovies(cameron);
+
+var directorMoviesPar = document.createElement('p');
+directorMoviesPar.append(directorMovies,directorMoviesList);
+var directorSection = createSection(cameron.name + " (director)");
+directorSection.append(directorBirthYearPar,directorMoviesPar);
+
+//actors info
+var actors = [dicaprio,winslet,zane,bates,fisher];
+var actorsSection = createSection("Actors");
+
+actors.forEach(actor => {  
+    var actorName = document.createTextNode("Name: ");
+    var actorNamePar = document.createElement('p');
+    actorNamePar.append(actorName,actor.name);
+    var actorBirthYear = document.createTextNode("Birth year: ");
+    var actorBirthYearPar = document.createElement('p');
+    actorBirthYearPar.append(actorBirthYear,actor.birthyear)
+    var actorMovies = document.createTextNode("Movies: ");
+    var actorMoviesList = createListMovies(actor);
+    
+    var enter = document.createElement("br");
+    var actorMoviesPar = document.createElement('p');
+    actorMoviesPar.append(actorMovies,actorMoviesList,enter);
+    actorsSection.append(actorNamePar,actorBirthYearPar,actorMoviesPar);
+})
+
+main.append(filmSection,directorSection,actorsSection);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
