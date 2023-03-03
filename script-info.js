@@ -20,7 +20,8 @@ class Director extends Artist{
     }
 }
 class Writer extends Artist{
-    constructor(name, birthyear, books){
+    constructor(name, birthyear, books)
+    {
         super(name, birthyear)
         this.books = books;
     }
@@ -43,10 +44,20 @@ bates = new Actor('Kathy Bates', 1948, ['Misery', 'Dolores Claiborne', 'Fried Gr
 fisher = new Actor('Frances Fisher', 1952, ['Holidate', 'Unforgiven', 'The Sinner'], "character-photos/francis_fisher.jpg");
 
 var main = document.getElementById('main');
-var title = document.createElement('p');
-title.setAttribute("id","title")
-title.append(titanic.title);
-main.appendChild(title);
 
+var filmTitel = document.createTextNode("Information of the movie Titanic");
+var filmTekst = document.createTextNode("Title: ");
+var filmTekst1 = document.createTextNode("Genre: ");
+var filmTekst2 = document.createTextNode("Year: ");
+var filmKopje = document.createElement('h2');
+filmKopje.appendChild(filmTitel);
+var filmInhoud = document.createElement('p');
+filmInhoud.append(filmTekst,titanic.title,filmTekst1,titanic.genre,filmTekst2,titanic.year);
+
+var filmSection = document.createElement('section');
+filmSection.setAttribute("id","filmSection");
+main.appendChild(filmKopje);
+filmSection.appendChild(filmInhoud);
+main.appendChild(filmSection);
 
 
