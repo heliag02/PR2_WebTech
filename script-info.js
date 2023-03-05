@@ -90,7 +90,7 @@ var directorMoviesList = createListMovies(cameron);
 
 var directorMoviesPar = document.createElement('p');
 directorMoviesPar.append(directorMovies,directorMoviesList);
-var directorSection = createSection(cameron.name + " (director)");
+var directorSection = createSection(cameron.name + " (director/writer)");
 directorSection.append(directorBirthYearPar,directorMoviesPar);
 
 //actors info
@@ -109,8 +109,14 @@ actors.forEach(actor => {
     
     var enter = document.createElement("br");
     var actorMoviesPar = document.createElement('p');
-    actorMoviesPar.append(actorMovies,actorMoviesList,enter);
-    actorsSection.append(actorNamePar,actorBirthYearPar,actorMoviesPar);
+    actorMoviesPar.append(actorMovies,actorMoviesList);
+
+    var linkPhoto = document.createElement('a');
+    var linkText = document.createTextNode("Photo");
+    linkPhoto.append(linkText);
+    linkPhoto.href = actor.photo;
+
+    actorsSection.append(actorNamePar,actorBirthYearPar,actorMoviesPar, linkPhoto, enter);
 })
 
 main.append(filmSection,directorSection,actorsSection);
