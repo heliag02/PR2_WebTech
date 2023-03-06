@@ -112,18 +112,25 @@ actors.forEach(actor => {
 
     var linkPhoto = document.createElement('a');
     var photoText = document.createTextNode("Photo");
+    const targetBlank = document.createAttribute("target");
+    targetBlank.value = "_blank";
     linkPhoto.append(photoText);
     linkPhoto.href = actor.photo;
-
+    linkPhoto.setAttributeNode(targetBlank);
+   
     actorsSection.append(actorNamePar,actorBirthYearPar,actorMoviesPar, linkPhoto);
 })
 
 //poster
 var linkPoster = document.createElement('a');
 var posterText = document.createTextNode("Poster");
+const targetBlank = document.createAttribute("target");
+targetBlank.value = "_blank";
 linkPoster.append(posterText);
 linkPoster.href = "poster.jpg";
+linkPoster.setAttributeNode(targetBlank);
 linkPoster.classList.add("info-link");
+
 
 //trailer
 var linkTrailer = document.createElement('a');
@@ -131,6 +138,7 @@ var trailerText = document.createTextNode("Trailer");
 linkTrailer.append(trailerText);
 linkTrailer.href = "home.html#trailer";
 linkTrailer.classList.add("info-link");
+
 
 var enter = document.createElement("br");
 
