@@ -81,6 +81,14 @@ filmJaarPar.append(filmJaar,titanic.year);
 var filmSection = createSection(titanic.title + " (movie)");
 filmSection.append(filmGenrePar,filmJaarPar);
 
+//plot
+var plot = document.createElement('p');
+var plotText = document.createTextNode("A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.");
+plot.append(plotText);
+var plotSection = createSection("Plot");
+plotSection.append( plot);
+
+
 //director info
 var directorBirthYear = document.createTextNode("Birth year: ");
 var directorBirthYearPar = document.createElement('p');
@@ -140,9 +148,11 @@ linkTrailer.href = "home.html#trailer";
 linkTrailer.classList.add("info-link");
 
 
+
+
 var enter = document.createElement("br");
 
-main.append(filmSection,directorSection,actorsSection,linkPoster,enter,linkTrailer);
+main.append(filmSection,plotSection, directorSection,actorsSection,linkPoster,enter,linkTrailer);
 
 
 
