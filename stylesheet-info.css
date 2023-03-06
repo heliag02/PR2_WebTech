@@ -11,3 +11,18 @@ p{
     margin-bottom: 5px;
 }
 
+.info-link:link {
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+  }
+
+.info-link {
+    border: 2px solid rgba(255, 158, 106, 0.7);
+    border-radius: 8px;
+    color: white;
+    margin: 7px;
+}

@@ -107,19 +107,34 @@ actors.forEach(actor => {
     var actorMovies = document.createTextNode("Movies: ");
     var actorMoviesList = createListMovies(actor);
     
-    var enter = document.createElement("br");
     var actorMoviesPar = document.createElement('p');
     actorMoviesPar.append(actorMovies,actorMoviesList);
 
     var linkPhoto = document.createElement('a');
-    var linkText = document.createTextNode("Photo");
-    linkPhoto.append(linkText);
+    var photoText = document.createTextNode("Photo");
+    linkPhoto.append(photoText);
     linkPhoto.href = actor.photo;
 
-    actorsSection.append(actorNamePar,actorBirthYearPar,actorMoviesPar, linkPhoto, enter);
+    actorsSection.append(actorNamePar,actorBirthYearPar,actorMoviesPar, linkPhoto);
 })
 
-main.append(filmSection,directorSection,actorsSection);
+//poster
+var linkPoster = document.createElement('a');
+var posterText = document.createTextNode("Poster");
+linkPoster.append(posterText);
+linkPoster.href = "poster.jpg";
+linkPoster.classList.add("info-link");
+
+//trailer
+var linkTrailer = document.createElement('a');
+var trailerText = document.createTextNode("Trailer");
+linkTrailer.append(trailerText);
+linkTrailer.href = "home.html#trailer";
+linkTrailer.classList.add("info-link");
+
+var enter = document.createElement("br");
+
+main.append(filmSection,directorSection,actorsSection,linkPoster,enter,linkTrailer);
 
 
 
