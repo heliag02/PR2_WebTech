@@ -1,8 +1,9 @@
 class Movie{
-    constructor (title, genre, year){
+    constructor (title, genre, year,plot){
         this.title = title;
         this.genre = genre;
         this.year = year;
+        this.plot = plot;
     }
 }
 
@@ -34,7 +35,7 @@ class Actor extends Artist{
         this.photo = photo; 
     }
 }
-titanic = new Movie("Titanic", "Romance/Drama", 1998);
+titanic = new Movie("Titanic", "Romance/Drama", 1998,"A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.");
 cameron = new Director("James Cameron", 1954, ['Avatar', 'Avatar: The Way of Water', 'Terminator 2: Judgement Day']);
 //cameron = new Writer('James Cameron', 1954, []);
 dicaprio = new Actor('Leonardo DiCaprio', 1974, ['The Wolf of Wallstreet', 'The Revenant', 'Romeo + Juliet'], "character-photos/leonardo_dicaprio.jpg");
@@ -45,11 +46,11 @@ fisher = new Actor('Frances Fisher', 1952, ['Holidate', 'Unforgiven', 'The Sinne
 
 function createListMovies(person){
     var moviesList = document.createElement('ul');
-    person.movies.forEach(movie => {
-        var listItem = document.createElement('li');
-        listItem.append(movie);
+    for (let index in person.movies){
+        let listItem = document.createElement('li');
+        listItem.append(person.movies[index]);
         moviesList.appendChild(listItem);
-    })
+    }
     return moviesList;
 }
 
@@ -70,24 +71,13 @@ titel.appendChild(infoTitel);
 main.appendChild(titel);
 
 //film info 
-var filmGenre = document.createTextNode("Genre: ");
-var filmGenrePar = document.createElement('p');
-filmGenrePar.append(filmGenre,titanic.genre);
-
-var filmJaar = document.createTextNode("Year: ");
-var filmJaarPar = document.createElement('p');
-filmJaarPar.append(filmJaar,titanic.year);
-
 var filmSection = createSection(titanic.title + " (movie)");
-filmSection.append(filmGenrePar,filmJaarPar);
-
-//plot
-var plot = document.createElement('p');
-var plotText = document.createTextNode("A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.");
-plot.append(plotText);
-var plotSection = createSection("Plot");
-plotSection.append( plot);
-
+for (let index in titanic){
+    let genre = document.createTextNode(index + ": ");
+    let par = document.createElement('p');
+    par.append(genre,titanic[index]);
+    filmSection.append(par);
+}
 
 //director info
 var directorBirthYear = document.createTextNode("Birth year: ");
@@ -105,21 +95,21 @@ directorSection.append(directorBirthYearPar,directorMoviesPar);
 var actors = [dicaprio,winslet,zane,bates,fisher];
 var actorsSection = createSection("Actors");
 
-actors.forEach(actor => {  
-    var actorName = document.createTextNode("Name: ");
-    var actorNamePar = document.createElement('p');
+for(let actor of actors) {  
+    let actorName = document.createTextNode("Name: ");
+    let actorNamePar = document.createElement('p');
     actorNamePar.append(actorName,actor.name);
-    var actorBirthYear = document.createTextNode("Birth year: ");
-    var actorBirthYearPar = document.createElement('p');
+    let actorBirthYear = document.createTextNode("Birth year: ");
+    let actorBirthYearPar = document.createElement('p');
     actorBirthYearPar.append(actorBirthYear,actor.birthyear)
-    var actorMovies = document.createTextNode("Movies: ");
-    var actorMoviesList = createListMovies(actor);
+    let actorMovies = document.createTextNode("Movies: ");
+    let actorMoviesList = createListMovies(actor);
     
-    var actorMoviesPar = document.createElement('p');
+    let actorMoviesPar = document.createElement('p');
     actorMoviesPar.append(actorMovies,actorMoviesList);
 
-    var linkPhoto = document.createElement('a');
-    var photoText = document.createTextNode("Photo");
+    let linkPhoto = document.createElement('a');
+    let photoText = document.createTextNode("Photo");
     const targetBlank = document.createAttribute("target");
     targetBlank.value = "_blank";
     linkPhoto.append(photoText);
@@ -127,7 +117,7 @@ actors.forEach(actor => {
     linkPhoto.setAttributeNode(targetBlank);
    
     actorsSection.append(actorNamePar,actorBirthYearPar,actorMoviesPar, linkPhoto);
-})
+}
 
 //poster
 var linkPoster = document.createElement('a');
@@ -147,12 +137,7 @@ linkTrailer.append(trailerText);
 linkTrailer.href = "home.html#trailer";
 linkTrailer.classList.add("info-link");
 
-
-
-
-var enter = document.createElement("br");
-
-main.append(filmSection,plotSection, directorSection,actorsSection,linkPoster,enter,linkTrailer);
+main.append(filmSection, directorSection,actorsSection,linkPoster,linkTrailer);
 
 
 
