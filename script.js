@@ -1,8 +1,7 @@
 var partSelect = document.getElementById("part-select");
-var fontsizeSelect = document.getElementById("fontsize-select");
 var colorSelect = document.getElementById("color-select");
-fontsizeSelect.onchange = changeFontsize;
-colorSelect.onchange = changeColor;
+var fontsizeSelect = document.getElementById("fontsize-select");
+
 
 function changeFontsize(){
     var selected = partSelect.value;
@@ -12,7 +11,7 @@ function changeFontsize(){
     {
         item.style.fontSize = fontsize;
     }
-    };
+};
 
 function changeColor(){
     var selected = partSelect.value;
