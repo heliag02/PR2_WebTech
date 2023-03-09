@@ -56,8 +56,7 @@ function createListMovies(person){
 
 function createSection(title){
     var titel = document.createElement('h3');
-    var titelTekst = document.createTextNode(title);
-    titel.append(titelTekst);
+    titel.append(title);
     var section = document.createElement('section');
     section.appendChild(titel);
     return section;
@@ -65,29 +64,25 @@ function createSection(title){
 
 var main = document.getElementById('main');
 
-var infoTitel = document.createTextNode("Information");
 var titel = document.createElement('h2');
-titel.appendChild(infoTitel);
+titel.append("Information");
 main.appendChild(titel);
 
 //film info 
 var filmSection = createSection(titanic.title + " (movie)");
 for (let index in titanic){
-    let genre = document.createTextNode(index + ": ");
     let par = document.createElement('p');
-    par.append(genre,titanic[index]);
-    filmSection.append(par);
+    par.append(index.charAt(0).toUpperCase() + index.slice(1) + ": " + titanic[index]);
+    filmSection.appendChild(par);
 }
 
 //director info
-var directorBirthYear = document.createTextNode("Birth year: ");
 var directorBirthYearPar = document.createElement('p');
-directorBirthYearPar.append(directorBirthYear,cameron.birthyear);
-var directorMovies = document.createTextNode("Movies: ");
+directorBirthYearPar.append("Birth year: "+ cameron.birthyear);
 var directorMoviesList = createListMovies(cameron);
 
 var directorMoviesPar = document.createElement('p');
-directorMoviesPar.append(directorMovies,directorMoviesList);
+directorMoviesPar.append("Movies: ", directorMoviesList);
 var directorSection = createSection(cameron.name + " (director/writer)");
 directorSection.append(directorBirthYearPar,directorMoviesPar);
 
@@ -96,48 +91,42 @@ var actors = [dicaprio,winslet,zane,bates,fisher];
 var actorsSection = createSection("Actors");
 
 for(let actor of actors) {  
-    let actorName = document.createTextNode("Name: ");
     let actorNamePar = document.createElement('p');
-    actorNamePar.append(actorName,actor.name);
-    let actorBirthYear = document.createTextNode("Birth year: ");
+    actorNamePar.append("Name: " + actor.name);
     let actorBirthYearPar = document.createElement('p');
-    actorBirthYearPar.append(actorBirthYear,actor.birthyear)
-    let actorMovies = document.createTextNode("Movies: ");
+    actorBirthYearPar.append("Birth year: "+actor.birthyear)
     let actorMoviesList = createListMovies(actor);
-    
     let actorMoviesPar = document.createElement('p');
-    actorMoviesPar.append(actorMovies,actorMoviesList);
+    actorMoviesPar.append("Movies: ",actorMoviesList);
 
+    let linkPhotoPar = document.createElement('p');
     let linkPhoto = document.createElement('a');
-    let photoText = document.createTextNode("Photo");
-    const targetBlank = document.createAttribute("target");
-    targetBlank.value = "_blank";
-    linkPhoto.append(photoText);
-    linkPhoto.href = actor.photo;
-    linkPhoto.setAttributeNode(targetBlank);
+    linkPhoto.setAttribute('target','_blank');
+    linkPhoto.setAttribute('href',actor.photo);
+    linkPhoto.append('Go to the photo of ' + actor.name);
+    linkPhotoPar.append(linkPhoto);
    
-    actorsSection.append(actorNamePar,actorBirthYearPar,actorMoviesPar, linkPhoto);
+    actorsSection.append(actorNamePar,actorBirthYearPar,actorMoviesPar, linkPhotoPar);
 }
 
+var linkSection = createSection("See also");
+var linkPar = document.createElement('p');
 //poster
 var linkPoster = document.createElement('a');
-var posterText = document.createTextNode("Poster");
-const targetBlank = document.createAttribute("target");
-targetBlank.value = "_blank";
-linkPoster.append(posterText);
-linkPoster.href = "poster.jpg";
-linkPoster.setAttributeNode(targetBlank);
-linkPoster.classList.add("info-link");
-
+linkPoster.setAttribute('target','_blank');
+linkPoster.setAttribute('href',"poster.jpg");
+linkPoster.setAttribute('class',"info-link");
+linkPoster.append('Go to the film poster');
 
 //trailer
 var linkTrailer = document.createElement('a');
-var trailerText = document.createTextNode("Trailer");
-linkTrailer.append(trailerText);
-linkTrailer.href = "home.html#trailer";
-linkTrailer.classList.add("info-link");
+linkTrailer.setAttribute('href',"home.html#trailer");
+linkTrailer.setAttribute('class',"info-link");
+linkTrailer.append('Go to the film trailer');
 
-main.append(filmSection, directorSection,actorsSection,linkPoster,linkTrailer);
+linkPar.append(linkPoster,linkTrailer);
+linkSection.appendChild(linkPar);
+main.append(filmSection, directorSection,actorsSection,linkSection);
 
 
 
