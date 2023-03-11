@@ -11,18 +11,20 @@ p{
     margin-bottom: 5px;
 }
 
-.info-link:link {
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
+.tooltip {
+    position: relative;
     display: inline-block;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: bold;
+    border-bottom: 1px dotted white;
   }
-
-.info-link {
-    border: 2px solid rgba(255, 158, 106, 0.7);
-    border-radius: 8px;
-    color: white;
-    margin: 7px;
-}
+  
+  .tooltip__text {
+    width: 300px;
+    background-color: rgb(249, 170, 128);
+    color: black;
+    text-align: left;
+    border-radius: 15px;
+    padding: 5px 10px;
+    position: absolute; /*zodat het op de rest van de pagina komt en niet ertussen*/
+    bottom: 125%;
+    display: none;
+  }

@@ -62,6 +62,22 @@ function createSection(title){
     return section;
 }
 
+function createFillIn(index){
+    return index.charAt(0).toUpperCase() + index.slice(1) + ": ";
+}
+
+function showTooltip(e){
+    var actor = e.target.id;
+    const tooltip = document.getElementById(actor+"__tooltip");
+    tooltip.style.display = 'block';
+};
+
+function hideTooltip(e){
+    var actor = e.target.id;
+    const tooltip = document.getElementById(actor+"__tooltip");
+    tooltip.style.display = 'none';
+};
+
 var main = document.getElementById('main');
 
 var titel = document.createElement('h2');
@@ -72,41 +88,61 @@ main.appendChild(titel);
 var filmSection = createSection(titanic.title + " (movie)");
 for (let index in titanic){
     let par = document.createElement('p');
-    par.append(index.charAt(0).toUpperCase() + index.slice(1) + ": " + titanic[index]);
+    par.append(createFillIn(index) + titanic[index]);
     filmSection.appendChild(par);
 }
 
 //director info
-var directorBirthYearPar = document.createElement('p');
-directorBirthYearPar.append("Birth year: "+ cameron.birthyear);
-var directorMoviesList = createListMovies(cameron);
-
-var directorMoviesPar = document.createElement('p');
-directorMoviesPar.append("Movies: ", directorMoviesList);
 var directorSection = createSection(cameron.name + " (director/writer)");
-directorSection.append(directorBirthYearPar,directorMoviesPar);
+for (let index in cameron){
+    let value = cameron[index]
+    if (index=='movies'){
+        value = createListMovies(cameron);
+    }
+    let par = document.createElement('p');
+    par.append(createFillIn(index), value);
+    directorSection.appendChild(par);
+}
 
 //actors info
 var actors = [dicaprio,winslet,zane,bates,fisher];
 var actorsSection = createSection("Actors");
+var actorPar = document.createElement('p')
 
-for(let actor of actors) {  
+for (let actor of actors) {  
     let actorNamePar = document.createElement('p');
-    actorNamePar.append("Name: " + actor.name);
-    let actorBirthYearPar = document.createElement('p');
-    actorBirthYearPar.append("Birth year: "+actor.birthyear)
-    let actorMoviesList = createListMovies(actor);
-    let actorMoviesPar = document.createElement('p');
-    actorMoviesPar.append("Movies: ",actorMoviesList);
+    actorNamePar.className = "tooltip";
+    actorNamePar.id = actor.name;
+    
+    let tooltip = document.createElement('span');
+    tooltip.className = "tooltip__text";
+    tooltip.id=actor.name+"__tooltip"; 
+
+    for (let index in actor){
+        let par = document.createElement('p');
+        let value = actor[index]
+        if (index=='photo'){
+            break;
+        }
+        
+        if (index=='movies'){
+            value = createListMovies(actor);
+        }
+
+        par.append(createFillIn(index), value)
+        tooltip.append(par)
+    }
 
     let linkPhotoPar = document.createElement('p');
     let linkPhoto = document.createElement('a');
-    linkPhoto.setAttribute('target','_blank');
-    linkPhoto.setAttribute('href',actor.photo);
+    linkPhoto.setAttribute('target', '_blank');
+    linkPhoto.setAttribute('href', actor.photo);
     linkPhoto.append('Go to the photo of ' + actor.name);
     linkPhotoPar.append(linkPhoto);
-   
-    actorsSection.append(actorNamePar,actorBirthYearPar,actorMoviesPar, linkPhotoPar);
+    
+    let enter = document.createElement('br');
+    actorNamePar.append(actor.name,tooltip);
+    actorsSection.append(actorNamePar,linkPhotoPar,enter);
 }
 
 var linkSection = createSection("See also");
@@ -115,18 +151,25 @@ var linkPar = document.createElement('p');
 var linkPoster = document.createElement('a');
 linkPoster.setAttribute('target','_blank');
 linkPoster.setAttribute('href',"poster.jpg");
-linkPoster.setAttribute('class',"info-link");
+linkPoster.setAttribute('class',"link-button");
 linkPoster.append('Go to the film poster');
 
 //trailer
 var linkTrailer = document.createElement('a');
 linkTrailer.setAttribute('href',"home.html#trailer");
-linkTrailer.setAttribute('class',"info-link");
+linkTrailer.setAttribute('class',"link-button");
 linkTrailer.append('Go to the film trailer');
 
 linkPar.append(linkPoster,linkTrailer);
 linkSection.appendChild(linkPar);
 main.append(filmSection, directorSection,actorsSection,linkSection);
+
+const targets = document.getElementsByClassName("tooltip");
+for (let target of targets){
+    target.addEventListener('mouseover', showTooltip, false);
+    target.addEventListener('mouseleave', hideTooltip, false);
+}
+  
 
 
 
