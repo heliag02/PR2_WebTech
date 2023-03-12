@@ -43,6 +43,16 @@ footer{
     margin-right: 300px;
     min-width: 400px;
 }
+
+.resources__style {
+    margin-top: 30px;
+    min-width: 400px;
+    background-color: rgba(196, 123, 84, 0.834);
+    padding: 20px;
+    border-radius: 15px;
+    background-size: auto;
+}
+
 #nav-button{
     background-color: rgb(255, 158, 106);
     position: sticky;
