@@ -88,14 +88,14 @@ function hideTooltip(e){
     tooltip.style.display = 'none';
 };
 
-var main = document.getElementById('main');
+var main = document.getElementById('main-article');
 
 var titel = document.createElement('h2');
 titel.append("Information");
 main.appendChild(titel);
 
 //film info 
-var filmSection = createSection(titanic.title + " (movie)");
+var filmSection = createSection(titanic.title);
 for (let index in titanic){
     let par = document.createElement('p');
     par.append(createFillIn(index) + titanic[index]);

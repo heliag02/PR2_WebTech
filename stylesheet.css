@@ -16,6 +16,7 @@ h2{
 h3{
     font-size: 25px;
 }
+
 h4{
     font-weight: 600;
     font-size: 20px;
@@ -35,8 +36,14 @@ article{
 }
 
 footer{
-    margin: 10px 100px;
+    margin: 0px;
     background-color: white;
+    width: 100%;
+}
+
+ul{
+    list-style: inside;
+    padding: 0px;
 }
 
 .resources{
@@ -89,8 +96,15 @@ footer{
     margin: 0px !important;
 }
 #nav-info{
-    float: right;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-bottom-right-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+    margin: 0px !important;
+    padding: 20px !important;
 }
+
 .link-button:link{
     
     padding: 14px 25px;
@@ -109,28 +123,18 @@ footer{
 }
   
 .link-button:hover{
-    background-color: rgba(255, 158, 106, 0.7);
+    background-color: rgba(255, 158, 106, 0.7) !important;
     color: black;
   }
 
 #top{
-    text-align: right;
-    background-color: none !important;
-}
-
-#top a{
-    background-color: rgb(255, 158, 106);
-    padding: 20px 20px;
-    border-radius: 15px;
+    float: right;
+    background-color: rgba(196, 123, 84, 0.834);
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
-    text-decoration: none;
-    color: white;
+    margin-bottom: 0px;
 }
 
-#top a:hover{
-    color: black;
-}
 
 #titanic-logo{
     width: 69px; 
@@ -144,6 +148,7 @@ footer{
     h2{
       margin: 20px 0px;
     }
+    
     #nav-home{
       border-bottom-right-radius: 15px !important; 
       border-bottom-left-radius: 0px !important;
@@ -171,6 +176,7 @@ footer{
         border-bottom-right-radius: 15px;
         text-align: center;
         position: sticky;
+        z-index: 100;
         top: 0;
         background-color: rgb(196, 123, 84);
         padding: 10px;
@@ -193,6 +199,7 @@ footer{
     #nav-button{
         padding: 0px;
         position: static;
+        border: thin white solid;
     }
     #nav-button a{
         float: none;
@@ -202,17 +209,27 @@ footer{
         border-radius: 0px;
         margin: 0px;
     }
+
+    #nav-button a:hover,#nav-button a.active{
+        border: thin white solid;
+        padding: 9px !important; /*because border, 1px, is added*/
+    }
+
     #nav-home{
         position: relative;
         border-top-right-radius: 15px !important; /*to overwrite the border radius of parent id*/
         border-top-left-radius: 15px !important;
         border-bottom-right-radius: 0px !important;
-        padding: 0px !important;
     }
-    #nav-reviews{
-        border-bottom-left-radius: 15px !important; 
+
+    #nav-info{
+        position: relative;
+        border-top-right-radius: 0px !important; /*to overwrite the border radius of parent id*/
         border-bottom-right-radius: 15px !important;
+        border-bottom-left-radius: 15px !important;
+        padding: 10px !important;
     }
+
     #titanic-logo{
         transform: scale(0.8);
     }

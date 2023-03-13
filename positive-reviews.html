@@ -17,7 +17,7 @@
             <h1>The sunken ship</h1>
             <a href = "characters.html"> <strong>Characters</strong></a>
             <a class = "active" id="nav-reviews" href = "reviews.html"> <strong>Reviews</strong></a>
-            <a id = "nav-info" href = "info.html"><strong>Information</strong></a>
+            <a id = "nav-info" href = "info.html"><strong>Info</strong></a>
         </nav>
 
         <article id="article2">
@@ -79,7 +79,7 @@
             </section>
 
             <section class="resources__style">
-                <h3>Resources:</h3> 
+                <h3>Resources</h3> 
                 <p>
                     <ul>
                         <li><a href = https://www.rottentomatoes.com/m/titanic target = "_blank" >Rotten Tomatoes</a></li>
@@ -88,10 +88,35 @@
                 </p>
             </section>
         </article>
-
         <footer>
-            <section id = "top">
-                <a href = "#header"><h4>Back to top</h4></a>
+            <label for="part-select">Choose a part of the page:</label>
+            <select id="part-select" multiple>
+                <option value="">--Choose an option--</option>
+                <option value="body">Body</option>
+                <option value="header">Header</option>
+                <option value="footer">Footer</option>
+                <option value="aside">Aside</option>
+                <option value="article">Articles</option>
+                <option value="section">Sections</option>
+            </select>
+
+            <label for="fontsize-select">Choose a fontsize:</label>
+            <select id="fontsize-select">
+                <option value="">--Choose an option--</option>
+                    <option value="10px">10px</option>
+                    <option value="20px">20px</option>
+                    <option value="30px">30px</option>
+                </select>
+                <label for="color-select">Choose a color:</label>
+                <select id="color-select">
+                    <option value="">--Choose an option--</option>
+                    <option value="black">Black</option>
+                    <option value="white">White</option>
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                </select>
+            <section>
+                <a id = "top" class=link-button href = "#header">Back to top</a>
             </section>
         </footer>
     </body>
