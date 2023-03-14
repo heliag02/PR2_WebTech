@@ -4,18 +4,19 @@ var partSelect = document.getElementById("part-select");
 partTypes.forEach(part => {
     let elements = document.getElementsByTagName(part);
     let teller = 0;
-    if (elements.length > 1){
-        teller = 1;
-    }
+    let meerdere = (elements.length > 1);
+
     Array.from(elements).forEach(element => {
         let option = document.createElement('option');
         let tag = element.tagName.toLowerCase();
-        option.setAttribute('value', tag); //ook teller onthouden
+        option.setAttribute('value', tag+teller); //ook teller onthouden
         
-        let textElement = `${part} ${element.id ? `#${element.id}` : ''}`; //if the element has an id, add to textnode
+        //let textElement = `${part} ${element.id ? `#${element.id}` : ''}`; //if the element has an id, add to textnode
         //option.textContent = textElement;
-        if (teller != 0){
-            option.append(tag.charAt(0).toUpperCase() + tag.slice(1) + " " + teller);
+        if (meerdere){
+            option.append(tag.charAt(0).toUpperCase() + tag.slice(1) + " " + (teller+1));
+            //x = tag+teller
+            //option.append(x.slice(-1));
             teller++;
         }
         else{
@@ -32,22 +33,20 @@ colorSelect.addEventListener("change", changeColor, false);
 
 function changeFontsize(){
     var selected = partSelect.value;
+    var tag = selected.slice(0,-1);
+    var number = selected.slice(-1);
     var fontsize = fontsizeSelect.value;
-    var items = document.getElementsByTagName(selected);
-    for(var item of items)
-    {
-        item.style.fontSize = fontsize;
-    }
+    var item = document.getElementsByTagName(tag)[number];
+    item.style.fontSize = fontsize;
     };
 
 function changeColor(){
     var selected = partSelect.value;
+    var tag = selected.slice(0,-1);
+    var number = selected.slice(-1);
     var color = colorSelect.value;
-    var items = document.getElementsByTagName(selected);
-    for(var item of items)
-    {
-        item.style.color = color;
-    }
+    var item = document.getElementsByTagName(tag)[number];
+    item.style.color = color;
 }
 
     
