@@ -1,12 +1,25 @@
 var partTypes = ['body', 'header', 'footer', 'aside', 'article', 'section'];
 
 partTypes.forEach(part => {
-    var elements = document.getElementsByTagName(part);
+    let elements = document.getElementsByTagName(part);
+    let teller = 0;
+    if (elements.length > 1){
+        teller = 1;
+    }
     Array.from(elements).forEach(element => {
-        var option = document.createElement('option');
-        option.setAttribute('value', element.tagName.toLowerCase());
-        var textElement = `${part} ${element.id ? `#${element.id}` : ''}`; //if the element has an id, add to textnode
-        option.textContent = textElement;
+        let option = document.createElement('option');
+        let tag = element.tagName.toLowerCase();
+        option.setAttribute('value', tag);
+        
+        let textElement = `${part} ${element.id ? `#${element.id}` : ''}`; //if the element has an id, add to textnode
+        //option.textContent = textElement;
+        if (teller != 0){
+            option.textContent = tag+ " " + teller;
+            teller++;
+        }
+        else{
+            option.textContent = tag;
+        }
         document.getElementById('part-select').appendChild(option);
     })
 });
