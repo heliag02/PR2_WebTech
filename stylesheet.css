@@ -46,9 +46,8 @@ ul{
     padding: 0px;
 }
 
-.resources{
-    margin-right: 300px;
-    min-width: 400px;
+blockquote{
+    margin: 20px 0px;
 }
 
 .resources__style {
@@ -180,7 +179,7 @@ ul{
         top: 0;
         background-color: rgb(196, 123, 84);
         padding: 10px;
-        margin: 10px;
+        margin: 30px 0px;
     }
     h4{
         font-size: 17px;
