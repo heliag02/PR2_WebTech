@@ -1,4 +1,5 @@
 var partTypes = ['body', 'header', 'footer', 'aside', 'article', 'section'];
+var partSelect = document.getElementById("part-select");
 
 partTypes.forEach(part => {
     let elements = document.getElementsByTagName(part);
@@ -9,23 +10,21 @@ partTypes.forEach(part => {
     Array.from(elements).forEach(element => {
         let option = document.createElement('option');
         let tag = element.tagName.toLowerCase();
-        option.setAttribute('value', tag);
+        option.setAttribute('value', tag); //ook teller onthouden
         
         let textElement = `${part} ${element.id ? `#${element.id}` : ''}`; //if the element has an id, add to textnode
         //option.textContent = textElement;
         if (teller != 0){
-            option.textContent = tag+ " " + teller;
+            option.append(tag.charAt(0).toUpperCase() + tag.slice(1) + " " + teller);
             teller++;
         }
         else{
-            option.textContent = tag;
+            option.append(tag.charAt(0).toUpperCase() + tag.slice(1));
         }
-        document.getElementById('part-select').appendChild(option);
+        partSelect.appendChild(option);
     })
 });
 
-
-var partSelect = document.getElementById("part-select");
 var fontsizeSelect = document.getElementById("fontsize-select");
 var colorSelect = document.getElementById("color-select");
 fontsizeSelect.addEventListener("change", changeFontsize, false);
