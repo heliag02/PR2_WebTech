@@ -1,3 +1,17 @@
+var partTypes = ['body', 'header', 'footer', 'aside', 'article', 'section'];
+
+partTypes.forEach(part => {
+    var elements = document.getElementsByTagName(part);
+    Array.from(elements).forEach(element => {
+        var option = document.createElement('option');
+        option.setAttribute('value', element.tagName.toLowerCase());
+        var textElement = `${part} ${element.id ? `#${element.id}` : ''}`; //if the element has an id, add to textnode
+        option.textContent = textElement;
+        document.getElementById('part-select').appendChild(option);
+    })
+});
+
+
 var partSelect = document.getElementById("part-select");
 var fontsizeSelect = document.getElementById("fontsize-select");
 var colorSelect = document.getElementById("color-select");
