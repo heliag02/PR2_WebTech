@@ -38,11 +38,11 @@ class Actor extends Artist{
 titanic = new Movie("Titanic", "Romance/Drama", 1998,"A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.");
 cameron = new Director("James Cameron", 1954, ['Avatar', 'Avatar: The Way of Water', 'Terminator 2: Judgement Day']);
 landau = new Writer('Jon Landau', 1960, ['Solaris', 'Avatar', 'Dick Tracy']);
-dicaprio = new Actor('Leonardo DiCaprio', 1974, ['The Wolf of Wallstreet', 'The Revenant', 'Romeo + Juliet'], "character-photos/leonardo_dicaprio.jpg");
-winslet = new Actor('Kate Winslet', 1975, ['Avatar: The Way of Water', 'Mare of Easttown', 'The Holiday'], "character-photos/kate_winslet.jpg");
-zane = new Actor('Billy Zane', 1966, ['The Phantom', 'Dead Calm', 'Back to the Future Part II'], "character-photos/billy_zane.jpg");
-bates = new Actor('Kathy Bates', 1948, ['Misery', 'Dolores Claiborne', 'Fried Green Tomatoes'], "character-photos/kathy_bates.jpg");
-fisher = new Actor('Frances Fisher', 1952, ['Holidate', 'Unforgiven', 'The Sinner'], "character-photos/francis_fisher.jpg");
+dicaprio = new Actor('Leonardo DiCaprio', 1974, ['The Wolf of Wallstreet', 'The Revenant', 'Romeo + Juliet'], "pictures/character-pictures/leonardo_dicaprio.jpg");
+winslet = new Actor('Kate Winslet', 1975, ['Avatar: The Way of Water', 'Mare of Easttown', 'The Holiday'], "pictures/character-pictures/kate_winslet.jpg");
+zane = new Actor('Billy Zane', 1966, ['The Phantom', 'Dead Calm', 'Back to the Future Part II'], "pictures/character-pictures/billy_zane.jpg");
+bates = new Actor('Kathy Bates', 1948, ['Misery', 'Dolores Claiborne', 'Fried Green Tomatoes'], "pictures/character-pictures/kathy_bates.jpg");
+fisher = new Actor('Frances Fisher', 1952, ['Holidate', 'Unforgiven', 'The Sinner'], "pictures/character-pictures/francis_fisher.jpg");
 
 function createListBooks(person){
     var booksList = document.createElement('ul');
@@ -203,13 +203,13 @@ var linkPar = document.createElement('p');
 //poster
 var linkPoster = document.createElement('a');
 linkPoster.setAttribute('target','_blank');
-linkPoster.setAttribute('href',"poster.jpg");
+linkPoster.setAttribute('href',"pictures/poster.jpg");
 linkPoster.setAttribute('class',"link-button");
 linkPoster.append('Go to the film poster');
 
 //trailer
 var linkTrailer = document.createElement('a');
-linkTrailer.setAttribute('href',"home.html#trailer");
+linkTrailer.setAttribute('href',"index.html#trailer");
 linkTrailer.setAttribute('class',"link-button");
 linkTrailer.append('Go to the film trailer');
 
