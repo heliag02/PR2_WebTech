@@ -35,6 +35,7 @@ class Actor extends Artist{
         this.photo = photo; 
     }
 }
+
 titanic = new Movie("Titanic", "Romance/Drama", 1998,"A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.");
 cameron = new Director("James Cameron", 1954, ['Avatar', 'Avatar: The Way of Water', 'Terminator 2: Judgement Day']);
 landau = new Writer('Jon Landau', 1960, ['Solaris', 'Avatar', 'Dick Tracy']);
@@ -78,8 +79,8 @@ function createFillIn(index){
 
 function showTooltip(e){
     if (tooltipShow){
-        return; //als er al een tooltip wordt laten zien, gaan we er niet nog een laten zien
-    } //voor het geval dat je met je muis op de tooltip zit en daarachter een tooltiplink zit
+        return; //zodat je wanneer je met je muis op de tooltip zit, niet een tooltip daaronder kunt "aanroepen"
+    }
     tooltipShow = true;
     var actor = e.target.id;
     const tooltip = document.getElementById(actor+"__tooltip");
@@ -96,6 +97,7 @@ function hideTooltip(e){
 var main = document.getElementById('main-article');
 
 var titel = document.createElement('h2');
+titel.setAttribute("id","page__title");
 titel.append("Information");
 main.appendChild(titel);
 
@@ -189,17 +191,17 @@ for (let actor of actors) {
     linkPhoto.append('Go to the photo of ' + actor.name);
     linkPhotoPar.append(linkPhoto);
     
-    let enter = document.createElement('br');
     let actorListElement = document.createElement('li');
     
     actorNamePar.append(actor.name,tooltip);
-    actorListElement.append(actorNamePar,linkPhotoPar,enter);
+    actorListElement.append(actorNamePar,linkPhotoPar);
     actorList.append(actorListElement);
     actorsSection.append(actorList);
 }
 
 var linkSection = createSection("See also");
 var linkPar = document.createElement('p');
+
 //poster
 var linkPoster = document.createElement('a');
 linkPoster.setAttribute('target','_blank');
@@ -219,6 +221,7 @@ main.append(filmSection, directorSection,writerSection,actorsSection,linkSection
 
 var tooltipShow = false;
 const targets = document.getElementsByClassName("tooltip");
+
 for (let target of targets){
     target.addEventListener('mouseover', showTooltip, false);
     target.addEventListener('mouseleave', hideTooltip, false);

@@ -1,30 +1,31 @@
 var partTypes = ['body', 'header', 'footer', 'aside', 'article', 'section'];
 var partSelect = document.getElementById("part-select");
 
-partTypes.forEach(part => {
+for(let part of partTypes) {
+    if (part == "header"){ //there is nothing to change here
+        continue;
+    }
     let elements = document.getElementsByTagName(part);
     let teller = 0;
     let meerdere = (elements.length > 1);
 
-    Array.from(elements).forEach(element => {
+    for (let element of elements){
         let option = document.createElement('option');
         let tag = element.tagName.toLowerCase();
-        option.setAttribute('value', tag+teller); //ook teller onthouden
-        
-        //let textElement = `${part} ${element.id ? `#${element.id}` : ''}`; //if the element has an id, add to textnode
-        //option.textContent = textElement;
+        option.setAttribute('value', tag+teller);
         if (meerdere){
             option.append(tag.charAt(0).toUpperCase() + tag.slice(1) + " " + (teller+1));
-            //x = tag+teller
-            //option.append(x.slice(-1));
             teller++;
         }
         else{
             option.append(tag.charAt(0).toUpperCase() + tag.slice(1));
         }
         partSelect.appendChild(option);
-    })
-});
+    }
+};
+
+var defaultButton = document.getElementById("menu__default-button");
+defaultButton.addEventListener("click", function(){document.location.reload();}, false);
 
 var fontsizeSelect = document.getElementById("fontsize-select");
 var colorSelect = document.getElementById("color-select");
@@ -33,21 +34,11 @@ colorSelect.addEventListener("change", changeColor, false);
 
 function changeFontsize(){
     var selected = partSelect.value;
-    //console.log(selected);
     var tag = selected.slice(0,-1);
     var number = selected.slice(-1);
-    //console.log(tag);
-    //console.log(number);
     var fontsize = fontsizeSelect.value;
     var item = document.getElementsByTagName(tag)[number];
-    //console.log(item)
-    //if (tag=="body"){
-    //    for (let child in tag.children){
-    //        child.style.fontSize = fontsize;
-    //    }
-    //}
     item.style.fontSize = fontsize;
-    //item.style.setProperty(fontSize, fontsize, "important");
     };
 
 function changeColor(){
@@ -83,7 +74,5 @@ function changeButton(e){
     button.style.color = "black";
 }
 
-var defaultButton = document.getElementById("menu__default-button");
-defaultButton.addEventListener("click", function(){document.location.reload();}, false);
 
 

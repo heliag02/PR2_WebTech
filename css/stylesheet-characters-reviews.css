@@ -17,7 +17,7 @@
     margin-bottom: 10px;
     border-radius: 8px;
     padding: 10px 0px;
-    background-color: rgba(255, 158, 106, 0.7);
+    background-color: rgba(158, 100, 69, 0.8);
   }
 
   .container {
@@ -40,13 +40,12 @@
   
 
 table{
-  background-color: rgba(255, 158, 106, 0.7);
+  background-color: rgba(158, 100, 69, 0.7);
   align-self: center;
 }
 
 #characters{
     margin-right: 100px;
-    color: black;
   }
 
 #characters td, #characters th {
@@ -54,7 +53,9 @@ table{
     padding: 8px;
   }
 
-#characters tr:hover {background-color: rgba(158, 100, 69, 0.7);}
+#characters tr:hover {
+  background-color: rgba(158, 100, 69, 0.7);
+}
 
 #characters th {
     color: white;
@@ -62,7 +63,7 @@ table{
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: rgb(158, 100, 69);
+    background-color: rgba(158, 100, 69, 0.7);
   }
 
 .character-image{
