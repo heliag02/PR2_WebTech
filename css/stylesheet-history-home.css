@@ -16,7 +16,7 @@ video{
 }
 #trailer {
     float: left;
-    width: 60%;
+    width: 40%;
     margin-right: 20px;
 }
 
@@ -50,11 +50,18 @@ figcaption{
     margin: 20px;
 }
 
+
 #ship img{
     border-radius: 15px;
     width: 100%;
     height: auto;
 }
+@media screen and (max-width: 1025px) {
+    #trailer{
+        width: 60%;
+    }
+}
+
 @media screen and (max-width: 550px) {    
     #map{
         width:90%;
