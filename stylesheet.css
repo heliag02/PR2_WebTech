@@ -2,6 +2,11 @@ html{
     background: url('background.jpg') no-repeat center center fixed;
     background-size: cover;
 }
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
 h1{
     font-size: 40px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -31,8 +36,6 @@ article{
     border-radius: 15px;
     background-size: auto;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
 }
 
 footer{
@@ -105,8 +108,6 @@ blockquote{
 }
 
 .link-button:link{
-    
-    padding: 14px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -115,6 +116,7 @@ blockquote{
   }
 
 .link-button{
+    padding: 14px 25px;
     border: 2px solid rgba(255, 158, 106, 0.7);
     border-radius: 8px;
     color: white;
@@ -126,12 +128,17 @@ blockquote{
     color: black;
   }
 
-#top{
+#footer-div__button{
     float: right;
     background-color: rgba(196, 123, 84, 0.834);
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
     margin-bottom: 0px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    font-size: 1em;
 }
 
 
@@ -184,7 +191,7 @@ blockquote{
     h4{
         font-size: 17px;
     }
-    article{
+    body{
         font-size: 17px;
     }
     #main-article{
@@ -211,7 +218,7 @@ blockquote{
 
     #nav-button a:hover,#nav-button a.active{
         border: thin white solid;
-        padding: 9px !important; /*because border, 1px, is added*/
+        padding: 9px !important; /* because border, 1px, is added*/
     }
 
     #nav-home{

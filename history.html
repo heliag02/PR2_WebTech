@@ -19,8 +19,9 @@
             <a id = "nav-info" href = "info.html"><strong>Info</strong></a>
         </nav>
         <article id = "main-article">
+            <h2>History</h2>
             <section>
-                <h2>History</h2>
+                <h3>Intro</h3>
                 <p> 
                     The Titanic was a luxury British steamship that sank in the early hours of April 15, 1912 after striking an iceberg, leading to the deaths of more than 1,500 passengers and crew.
                 </p>
@@ -87,30 +88,35 @@
             </section>
         </article>
        
-        <footer> <!--deze footer moet nog op andere paginas gezet-->
-            <section>
+        <footer>
+            <h3> Change this page</h3>
             <label for="part-select">Choose a part of the page:</label>
             <select id="part-select">
                 <option value="">--Choose an option--</option>
             </select>
-
+            
             <label for="fontsize-select">Choose a fontsize:</label>
             <select id="fontsize-select">
                 <option value="">--Choose an option--</option>
-                    <option value="10px">10px</option>
-                    <option value="20px">20px</option>
-                    <option value="30px">30px</option>
-                </select>
-                <label for="color-select">Choose a color:</label>
-                <select id="color-select">
-                    <option value="">--Choose an option--</option>
-                    <option value="black">Black</option>
-                    <option value="white">White</option>
-                    <option value="red">Red</option>
-                    <option value="blue">Blue</option>
-                </select>
-                <a id = "top" class=link-button href = "#header">Back to top</a>
-            </section>
+                <option value="10px">10px</option>
+                <option value="20px">20px</option>
+                <option value="30px">30px</option>
+            </select>
+
+            <label for="color-select">Choose a color:</label>
+            <select id="color-select">
+                <option value="">--Choose an option--</option>
+                <option value="black">Black</option>
+                <option value="white">White</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+            </select>
+            
+            <button type="button" id="menu__default-button">Default</button>
+            
+            <div id="footer-div">
+                <button type="button" id = "footer-div__button" class="link-button">Back to top</button>
+            </div>
         </footer>
         
     </body>

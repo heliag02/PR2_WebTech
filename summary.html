@@ -21,8 +21,9 @@
         </nav>
 
         <article id = "main-article">
-            <section>
             <h2> Summary </h2>
+            <section>
+                <h3>Intro</h3>
                 <div>
                     <a target="_blank" href="titanic-summary.jpg">
                     <img id = "summary-img" src="titanic-summary.jpg" alt="Rose and Jack standing on the front of the titanic."></a>
@@ -32,7 +33,8 @@
                 <a class = "link-button" href = "summary.html#movie-epilogue">Go to epilogue</a>
             </section>
             <section>
-                <h3 id = "movie-plot">Movie plot</h3><p>Explorer <a href = "characters.html#Bill Paxton"> Brock Lovett</a> and his team explore the Titanic wreck in search of a precious diamond called The Heart of the Ocean. The diamond is thought to be located in the safe of Caledon Hockley’s safe which they easily locate. Upon opening, they find no sign of the diamond, but rather a nude sketch of a woman wearing a necklace fitted with the Heart of the Ocean. The sketch is dated April 14, 1912, the same date as the Titanic sinking. 100-year-old <a href = "characters.html#Kate Winslet"> Rose Dawson Calvert</a> learns of this drawing and identifies herself as the woman depicted. Her and her granddaughter <a href = "characters.html#Suzy Amis"> Elizabeth “Lizzy” Calvert</a> contact Lovett’s team. Rose is revealed as Rose DeWitt Bukater, a woman believed to have died on the Titanic.</p>
+                <h3 id = "movie-plot">Movie plot</h3>
+                <p>Explorer <a href = "characters.html#Bill Paxton"> Brock Lovett</a> and his team explore the Titanic wreck in search of a precious diamond called The Heart of the Ocean. The diamond is thought to be located in the safe of Caledon Hockley’s safe which they easily locate. Upon opening, they find no sign of the diamond, but rather a nude sketch of a woman wearing a necklace fitted with the Heart of the Ocean. The sketch is dated April 14, 1912, the same date as the Titanic sinking. 100-year-old <a href = "characters.html#Kate Winslet"> Rose Dawson Calvert</a> learns of this drawing and identifies herself as the woman depicted. Her and her granddaughter <a href = "characters.html#Suzy Amis"> Elizabeth “Lizzy” Calvert</a> contact Lovett’s team. Rose is revealed as Rose DeWitt Bukater, a woman believed to have died on the Titanic.</p>
                 <p>Bukater is a 17 year old upper-class woman engaged to the quintessential snob by the name of <a href = "characters.html#Billy Zane">Caledon “Cal” Hockley</a> when she boards the Titanic with her mother <a href = "characters.html#Frances Fisher"> Ruth Bukater</a>. The Dewitt-Bukater family, although projecting an upper class lifestyle has fallen under difficult financial times, and the marriage of Rose to the Cal, the heir to a steel fortune will eliminate all of their debts. Distraught over her situation and dissatisfaction with her engagement, Rose attempts suicide by jumping off the stern of the Titanic. Her attempted is quelled by an American by the name of <a href = "characters.html#Leonardo DiCaprio"> Jack Dawson</a>. Dawson is taken by her beauty and has the opportunity to mingle with the first class passengers for one night. The relationship between Dawson and Bukater grows and thanks to music from Gaelic Storm and some ale, they spend an enchanting night in third class.</p>
                 <p>Hockley finds out about their partying and forbids Rose to see Jack again, but she defies Hockley and meets Dawson on the rail where they share a passionate kiss. Retiring to Rose’s stateroom, she asks Dawson to sketch her wearing only the Heart of the Ocean, an engagement present from Hockley, and a smile. After more eloping, Rose decides that when they reach New York that she will leave the ship with Jack. They then witness the collision of the Titanic with the iceberg in the middle of the Atlantic. Cal discovers the drawing and a taunting note that Rose left him and frames Dawson for stealing the Heart of the Ocean. Dawson is arrested and taken to the master-at-arms office. Cal slaps Rose across the face due to his anger. Rose runs away from him (spitting in his face as Jack taught her to earlier) and her mother (who is in a lifeboat) to rescue Jack from imprisonment. With his “cell” being at the bottom of the ship and the ship sinking, the office slowly begins to flood. Rose eventually gets to him and frees him with an axe.</p>
                 <p>Cal convinces Rose to board a lifeboat by telling her that he made arrangements with one of the men working the lifeboats and that Dawson would get off safely. Once Rose is out of earshot, Cal reveals that there was an arrangement, but it wouldn’t be used to save Jack. Rose realizes that she cannot leave Jack and goes back for him again. Cal boards a collapsible lifeboat by pretending to look for a lost child, while Jack and Rose are washed into the freezing Atlantic after attempting to take refuge on the stern. They manage to grab onto an oak door that can only support one of them. Jack suffers from severe hypothermia and dies in Rose’s arms.</p>
@@ -55,28 +57,34 @@
         </article>
 
         <footer>
+            <h3> Change this page</h3>
             <label for="part-select">Choose a part of the page:</label>
-            <select id="part-select" multiple>
+            <select id="part-select">
+                <option value="">--Choose an option--</option>
             </select>
-
+            
             <label for="fontsize-select">Choose a fontsize:</label>
             <select id="fontsize-select">
                 <option value="">--Choose an option--</option>
-                    <option value="10px">10px</option>
-                    <option value="20px">20px</option>
-                    <option value="30px">30px</option>
-                </select>
-                <label for="color-select">Choose a color:</label>
-                <select id="color-select">
-                    <option value="">--Choose an option--</option>
-                    <option value="black">Black</option>
-                    <option value="white">White</option>
-                    <option value="red">Red</option>
-                    <option value="blue">Blue</option>
-                </select>
-            <section>
-                <a id = "top" class=link-button href = "#header">Back to top</a>
-            </section>
+                <option value="10px">10px</option>
+                <option value="20px">20px</option>
+                <option value="30px">30px</option>
+            </select>
+
+            <label for="color-select">Choose a color:</label>
+            <select id="color-select">
+                <option value="">--Choose an option--</option>
+                <option value="black">Black</option>
+                <option value="white">White</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+            </select>
+            
+            <button type="button" id="menu__default-button">Default</button>
+            
+            <div id="footer-div">
+                <button type="button" id = "footer-div__button" class="link-button">Back to top</button>
+            </div>
         </footer>
     </body>
 </html>

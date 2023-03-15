@@ -77,12 +77,17 @@ function createFillIn(index){
 }
 
 function showTooltip(e){
+    if (tooltipShow){
+        return; //als er al een tooltip wordt laten zien, gaan we er niet nog een laten zien
+    } //voor het geval dat je met je muis op de tooltip zit en daarachter een tooltiplink zit
+    tooltipShow = true;
     var actor = e.target.id;
     const tooltip = document.getElementById(actor+"__tooltip");
     tooltip.style.display = 'block';
 };
 
 function hideTooltip(e){
+    tooltipShow = false;
     var actor = e.target.id;
     const tooltip = document.getElementById(actor+"__tooltip");
     tooltip.style.display = 'none';
@@ -151,7 +156,7 @@ writerSection.append(writerNamePar);
 //actors info
 var actors = [dicaprio,winslet,zane,bates,fisher];
 var actorsSection = createSection("Actors");
-var actorPar = document.createElement('p')
+var actorList = document.createElement('ul')
 
 for (let actor of actors) {  
     let actorNamePar = document.createElement('p');
@@ -185,8 +190,12 @@ for (let actor of actors) {
     linkPhotoPar.append(linkPhoto);
     
     let enter = document.createElement('br');
+    let actorListElement = document.createElement('li');
+    
     actorNamePar.append(actor.name,tooltip);
-    actorsSection.append(actorNamePar,linkPhotoPar,enter);
+    actorListElement.append(actorNamePar,linkPhotoPar,enter);
+    actorList.append(actorListElement);
+    actorsSection.append(actorList);
 }
 
 var linkSection = createSection("See also");
@@ -208,6 +217,7 @@ linkPar.append(linkPoster,linkTrailer);
 linkSection.appendChild(linkPar);
 main.append(filmSection, directorSection,writerSection,actorsSection,linkSection);
 
+var tooltipShow = false;
 const targets = document.getElementsByClassName("tooltip");
 for (let target of targets){
     target.addEventListener('mouseover', showTooltip, false);
