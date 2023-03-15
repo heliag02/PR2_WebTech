@@ -65,8 +65,17 @@ var topDiv = document.getElementById("footer-div");
 topButton.addEventListener("click", goUp, false);
 topDiv.addEventListener("click", changeButton, true);
     
-function goUp(){
-    setTimeout(function() {document.location.href = "#header"},500);
+function goUp(e){
+    var button = e.target;
+    setTimeout(function() {
+        document.location.href = "#header";
+        button.style.backgroundColor= null;
+        button.style.fontFamily= null;
+        button.style.fontSize = null;
+        button.style.borderColor = null;
+        button.style.borderWidth = null;
+        button.style.color = null;
+    },600);
 }
 
 function changeButton(e){
@@ -76,6 +85,7 @@ function changeButton(e){
     button.style.fontSize = "30px";
     button.style.borderColor ="black";
     button.style.borderWidth = "5px";
+    button.style.color = "black";
 }
 
 var defaultButton = document.getElementById("menu__default-button");
