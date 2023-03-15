@@ -69,12 +69,7 @@ function goUp(e){
     var button = e.target;
     setTimeout(function() {
         document.location.href = "#header";
-        button.style.backgroundColor= null;
-        button.style.fontFamily= null;
-        button.style.fontSize = null;
-        button.style.borderColor = null;
-        button.style.borderWidth = null;
-        button.style.color = null;
+        button.style = null;
     },600);
 }
 
